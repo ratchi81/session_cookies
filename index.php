@@ -1,4 +1,56 @@
-<?php require 'inc/head.php'; ?>
+<?php 
+/**/
+session_start(); 
+if (isset($_SESSION['loginname'])){
+  $loginOK = '<br />Bienvenue sur votre epsace '.$_SESSION['loginname'];
+  $loginOK .= '<br /><a href="logout.php"" class="btn btn-danger btn-sm active" role="button">Déconnexion</a>';
+}else{
+  header("Location: login.php");
+}
+
+
+/*
+  $prodBuy = ["46"=>"Pecan nuts",
+      "36"=>"Chocolate chips",
+      "58"=>"Chocolate cookie",
+      "32"=>"M&M's&copy; cookies"
+    ];
+
+  if (isset($_GET['add_to_cart'])){
+    foreach($prodBuy as $key=>$val){
+      if($_GET['add_to_cart'] === "'.$key.'"){
+        setcookie($_GET['add_to_cart'],"'.$val.'", time() + 3600);
+      }
+      var_dump($key);
+      var_dump($val);
+
+
+    }
+*/
+  if (isset($_GET['add_to_cart'])){
+    
+     if($_GET['add_to_cart'] === '46'){
+        setcookie($_GET['add_to_cart'], "Pecan nuts", time() + 3600);
+     }elseif($_GET['add_to_cart'] === '36'){
+        setcookie($_GET['add_to_cart'], "Chocolate chips", time() + 3600);
+     }elseif($_GET['add_to_cart'] === '58'){
+      setcookie($_GET['add_to_cart'], "Chocolate cookie", time() + 3600);
+    }elseif($_GET['add_to_cart'] === '32'){
+      setcookie($_GET['add_to_cart'], "M&M's&copy; cookies", time() + 3600);
+    }
+    
+    
+  } 
+
+
+
+  
+
+
+
+require 'inc/head.php'; 
+
+?>
 <section class="cookies container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">

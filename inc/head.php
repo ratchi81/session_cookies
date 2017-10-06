@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?php
+  if(isset($_POST['loginname'])){
+    $_SESSION['loginname'] = $_POST['loginname'];
+  }
+  
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
 <head>
   <title>The Cookie Factory</title>
 </head>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/styles.css" />
 <body>
@@ -22,7 +27,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/" >
+        <a class="navbar-brand" href="index.php" >
           <img class="pull-left" src="assets/img/cookie_funny_clipart.png" alt="The Cookies Factory logo">
           <h1>The Cookies Factory</h1>
         </a>
@@ -35,7 +40,7 @@
           <li><a href="#">Nuts</a></li>
           <li><a href="#">Gluten full</a></li>
           <li>
-            <a href="/cart.php" class="btn btn-warning navbar-btn">
+            <a href="cart.php" class="btn btn-warning navbar-btn">
               <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
               Cart
             </a>
@@ -44,7 +49,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <div class="container-fluid text-right">
-    <strong>Hello Wilder !</strong>
+  <div class="container-fluid">
+      <strong><?php echo $loginOK;  ?> </strong>
   </div>
 </header>
